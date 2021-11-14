@@ -40,9 +40,11 @@ li strong {
   color: rgb(135, 135, 135);
   display: flex;
 }
-.description{
-  text-transform:capitalize;
+li:first-letter {
+  text-transform: capitalize;
 }
+
+
 
 img {
   margin-top: -45px;
