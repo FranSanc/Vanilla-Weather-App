@@ -40,6 +40,9 @@ li strong {
   color: rgb(135, 135, 135);
   display: flex;
 }
+.description{
+  text-transform:capitalize;
+}
 
 img {
   margin-top: -45px;
@@ -65,10 +68,13 @@ img {
   position: relative;
   line-height: 1;
 }
+
+
 small {
-  margin-left: 51px;
-  display: flex;
-  
+  max-width: 600px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 small a {
   color: #f65282;
