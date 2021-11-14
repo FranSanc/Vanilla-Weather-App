@@ -44,8 +44,6 @@ li:first-letter {
   text-transform: capitalize;
 }
 
-
-
 img {
   margin-top: -45px;
   width: 39%;
@@ -70,7 +68,25 @@ img {
   position: relative;
   line-height: 1;
 }
-
+form .search-input {
+  background: #f9f7fe;
+  border: none;
+  padding: 15 px 20 px;
+  display: inline-block;
+  border-radius: 6 px;
+  color: rgba(39, 33, 66, 0.4);
+  font-size: 16px;
+  height: 100 px;
+  line-height: 25px;
+}
+.btn-primary {
+  background: #885df1 !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  padding: 15 px 0 !important;
+  border: none !important;
+  height: 50 px !important;
+}
 
 small {
   max-width: 600px;
