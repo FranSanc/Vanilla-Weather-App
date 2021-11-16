@@ -95,20 +95,42 @@ small {
   margin-right: auto;
 }
 small a {
-  color: #f65282;
+  color: #f65282 !important;
 }
 
 a:link {
   text-decoration: none;
-  color:rgba(1, 0, 7, 0.4);
-  
+  color: rgba(1, 0, 7, 0.4);
 }
 
-a.active{
+a.active {
   color: #f65282;
-  cursor:default;
+  cursor: default;
 }
-a.active:hover{
+a.active:hover {
   text-decoration: none;
-  color:rgba(39, 33, 66, 0.4);
+  color: rgba(39, 33, 66, 0.4);
+}
+
+.weather-forecast {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.forecast-day {
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  color: rgba(39, 33, 66, 0.4);
+}
+
+.forecast-temperature {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #f65282;
+  font-weight: 700;
+}
+.forecast-temperature-min {
+  margin-left: 10 px;
+  opacity: 0.6;
 }
