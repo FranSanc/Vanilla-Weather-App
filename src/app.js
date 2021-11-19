@@ -20,6 +20,13 @@ function formatDate(timestamp) {
   let day = days[date.getDay()];
   return `${day} ${hours}:${minutes}`;
 }
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
 
 function dispayForecast(response) {
   let forecast = response.data.daily;
@@ -27,32 +34,43 @@ function dispayForecast(response) {
 
   let forecastHTML = `<div class="row">`;
 
-  forecast.forEach(function (forecastDay) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index<6){
+      forecastHTML =
+        forecastHTML +
+        `
     <div class="col-2">
-      <div class="forecast-day">${forecastDay.dt}</div>
-     <img
-          src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
+      <div class="forecast-day">${formatDay(forecastDay.dt)}</div>
+      <img class="img-style"
+          src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png"
           alt=""
-          width="42"
-        />
+          width="45"
+          
+          />
+          
       <div class="forecast-temperature">
-        <span class="forecast-temperature-max">${forecastDay.temp.max}°</span>
-        <span class="forecast-temperature-min">${forecastDay.temp.min}°</span>
+        <span class="forecast-temperature-max">${Math.round(
+          forecastDay.temp.max
+        )}°</span>
+        <span class="forecast-temperature-min">${Math.round(
+          forecastDay.temp.min
+        )}°</span>
       </div>
     </div>`;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
 
-function getForecast(coodinates) {
+function getForecast(coordinates) {
   let apiKey = "14ae7857ff700daefb749e38ecc205df";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric `;
   axios.get(apiUrl).then(dispayForecast);
 }
+
 
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
